@@ -1,5 +1,7 @@
 import bisect
 from heapq import heappush, heappop, nsmallest
+import decimal
+from decimal import Decimal
 
 a = []
 heappush(a, 5)
@@ -18,3 +20,11 @@ x = list(range(10**6))
 %timeit i = bisect.bisect_left(x, 991234)
 
 bisect.bisect(x, 991234)
+
+rate = Decimal('1.45')
+seconds = Decimal('222')
+cost = rate * seconds / Decimal('60')
+print(cost)
+
+rounded = cost.quantize(Decimal('0.01'), rounding=decimal.ROUND_UP)
+rounded
